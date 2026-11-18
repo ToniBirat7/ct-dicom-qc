@@ -1,0 +1,21 @@
+[project]
+name = "ct-dicom-qc"
+version = "0.1.0"
+description = "Audit, convert and de-identify CT DICOM series"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Birat Gautam"}]
+dependencies = [
+    "pydicom>=3.0",
+    "SimpleITK>=2.3",
+    "numpy>=1.26",
+    "pandas>=2.2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "src"]
