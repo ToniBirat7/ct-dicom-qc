@@ -54,6 +54,9 @@ python src/convert.py DATA_DIR OUT_DIR --report results/conversion.csv
 python -c "import secrets; print(secrets.token_hex(32))" > private/salt.txt
 python src/anonymise.py DATA_DIR ANON_DIR --salt-file private/salt.txt --map private/map.csv
 python src/verify.py DATA_DIR ANON_DIR
+
+# Or run the synthetic test suite inside Docker
+docker build -t ct-dicom-qc . && docker run --rm ct-dicom-qc
 ```
 
 Tests build a small CT series with pydicom (shuffled file order, unrelated instance numbers, identifying and private tags) and check slice ordering, gap detection, the conversion cross-check, and the de-identification round trip.
