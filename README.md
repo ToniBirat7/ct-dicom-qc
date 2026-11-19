@@ -3,6 +3,7 @@
 Audit, convert and de-identify CT DICOM series, with checks that each step did what it claims.
 
 Tested on six lower-limb CT series (1,690 files) from the public TCIA Soft-tissue-Sarcoma collection.
+Design choices and what the data showed: [docs/NOTES.md](docs/NOTES.md).
 
 ## What it does
 

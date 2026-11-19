@@ -1,16 +1,10 @@
+# Runs the unit tests on a synthetic DICOM series; no data needed.
 FROM python:3.12-slim
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    libgomp1 \
-    && rm -rf /var/lib/apt/lists/*
-
 WORKDIR /app
-
 COPY pyproject.toml README.md ./
 COPY src ./src
 COPY tests ./tests
-COPY results ./results
-
 RUN pip install --no-cache-dir -e ".[dev]"
 
 CMD ["pytest", "-q"]
